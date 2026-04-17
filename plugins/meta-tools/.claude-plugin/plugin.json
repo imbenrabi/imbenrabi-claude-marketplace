@@ -1,0 +1,8 @@
+{
+  "name": "meta-tools",
+  "description": "Commands for scaffolding skills, agents, and commands in any Claude Code marketplace plugin",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}

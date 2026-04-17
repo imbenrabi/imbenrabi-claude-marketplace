@@ -1,0 +1,8 @@
+{
+  "name": "coding-standards",
+  "description": "Language-specific coding standards enforcing pure functions, proper types, single responsibility, and documentation — for TypeScript, Python, Go, and Rust",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}

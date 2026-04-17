@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "imbenrabi",
+  "description": "Personal marketplace for coding standards, meta-tools, and plugin templates",
+  "owner": {
+    "name": "Ben Rabinovich"
+  },
+  "plugins": [
+    {
+      "name": "coding-standards",
+      "source": "./plugins/coding-standards",
+      "description": "Language-specific coding standards for TypeScript, Python, Go, and Rust — enforcing pure functions, proper types, and documentation"
+    },
+    {
+      "name": "meta-tools",
+      "source": "./plugins/meta-tools",
+      "description": "Commands for generating skills, agents, and commands in any Claude Code plugin"
+    }
+  ]
+}
