@@ -4,28 +4,25 @@ Personal Claude Code marketplace housing coding standards, agent behavioral guid
 
 ## Quick Start
 
+The most reliable path — works regardless of which Claude surface you use later. Run from any terminal:
+
 ```bash
-# 1. Clone the repo (only needed for local-directory installs)
-git clone git@github.com:imbenrabi/claude-marketplace.git
+claude plugin marketplace add imbenrabi/claude-marketplace
+claude plugin install coding-standards@imbenrabi --scope user
+claude plugin install agent-guidelines@imbenrabi --scope user
+claude plugin install meta-tools@imbenrabi --scope user
+claude plugin list
 ```
 
-Then in a Claude Code session — whether you're in the **command line** or the **desktop app** — register the marketplace and install whichever plugins you want:
+Plugins land in `~/.claude/plugins/` at user scope, so every Claude Code session on this machine picks them up — terminal, the Claude Code desktop app, IDE extensions.
 
-```
-/plugin marketplace add imbenrabi/claude-marketplace
-/plugin install coding-standards@imbenrabi
-/plugin install agent-guidelines@imbenrabi
-/plugin install meta-tools@imbenrabi
-/reload-plugins
-```
-
-Verify by typing `/meta-tools:` and confirming commands appear:
+Verify by starting a `claude` session and confirming the meta-tools commands appear:
 
 ```
 /meta-tools:create-skill
 ```
 
-That's it. Skills auto-trigger from conversation context; commands are invoked via `/<plugin>:<name>`.
+Skills auto-trigger from conversation context; commands are invoked as `/<plugin>:<name>`.
 
 ## Installation
 
