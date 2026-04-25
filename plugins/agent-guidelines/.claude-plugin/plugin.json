@@ -1,0 +1,8 @@
+{
+  "name": "agent-guidelines",
+  "description": "Behavioral guidelines that steer how the assistant approaches coding tasks — surface assumptions, keep changes surgical, define verifiable success criteria, avoid overcomplication",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}

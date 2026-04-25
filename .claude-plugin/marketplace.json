@@ -15,6 +15,11 @@
       "name": "meta-tools",
       "source": "./plugins/meta-tools",
       "description": "Commands for generating skills, agents, and commands in any Claude Code plugin"
+    },
+    {
+      "name": "agent-guidelines",
+      "source": "./plugins/agent-guidelines",
+      "description": "Behavioral guidelines (Karpathy-style) that steer how the assistant writes and edits code"
     }
   ]
 }
