@@ -26,12 +26,14 @@ Skills auto-trigger from conversation context; commands are invoked as `/<plugin
 
 ## Installation
 
-Claude Code runs in two surfaces that both use the same plugin system:
+Plugins are a Claude Code feature. They live in `~/.claude/plugins/` and are registered in `~/.claude/settings.json`. Every Claude Code surface on this machine — terminal CLI, the Claude Code desktop app, IDE extensions — reads the same state.
 
-- **Claude Code (command line)** — the `claude` CLI in your terminal.
-- **Claude Desktop** — the macOS/Windows desktop app.
+Install commands have two equivalent forms:
 
-Both surfaces share `~/.claude/settings.json` and both expose the `/plugin` interface in chat. The sections below show the install flow for each surface separately so you can pick the one that matches how you use Claude Code.
+- **Shell form** (`claude plugin …`) — runs in any terminal, including a non-Claude one. Most reliable: works regardless of the surface you'll use later, including surfaces that don't expose slash commands.
+- **Slash form** (`/plugin …`) — runs inside a Claude Code session. Available in the terminal CLI and the Claude Code desktop app. **Not** available in the consumer Claude desktop chat app at claude.ai/download.
+
+The sections below cover the install flow for each surface separately, but the `claude plugin install …` shell form works for both.
 
 ### Claude Code (command line)
 
@@ -39,59 +41,16 @@ Use this section if you run `claude` from a terminal.
 
 #### Option A — GitHub source (recommended for consumers)
 
-Add to `~/.claude/settings.json` under `extraKnownMarketplaces`:
+From any terminal:
 
-```json
-{
-  "extraKnownMarketplaces": {
-    "imbenrabi": {
-      "source": {
-        "source": "github",
-        "repo": "imbenrabi/claude-marketplace"
-      }
-    }
-  }
-}
+```bash
+claude plugin marketplace add imbenrabi/claude-marketplace
+claude plugin install coding-standards@imbenrabi --scope user
+claude plugin install agent-guidelines@imbenrabi --scope user
+claude plugin install meta-tools@imbenrabi --scope user
 ```
 
-Then in a `claude` session:
-
-```
-/plugin install coding-standards@imbenrabi
-/plugin install agent-guidelines@imbenrabi
-/plugin install meta-tools@imbenrabi
-/reload-plugins
-```
-
-#### Option B — Local directory (for development on this marketplace)
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "imbenrabi": {
-      "source": {
-        "source": "directory",
-        "path": "/absolute/path/to/claude-marketplace"
-      }
-    }
-  }
-}
-```
-
-Then install the plugins:
-
-```
-/plugin install coding-standards@imbenrabi
-/plugin install agent-guidelines@imbenrabi
-/plugin install meta-tools@imbenrabi
-/reload-plugins
-```
-
-For pure local iteration without registering the marketplace, the CLI also accepts `claude --plugin-dir ./plugins/<plugin-name>` to load a single plugin directly from disk.
-
-#### Option C — Interactive registration
-
-In any `claude` session, register and install in one go:
+Equivalent slash-command form inside a `claude` session:
 
 ```
 /plugin marketplace add imbenrabi/claude-marketplace
@@ -101,49 +60,7 @@ In any `claude` session, register and install in one go:
 /reload-plugins
 ```
 
-For a local checkout, swap the first command for `/plugin marketplace add /absolute/path/to/claude-marketplace`.
-
-#### Enabling plugins
-
-After installation, plugins are enabled by default. To explicitly control state in `~/.claude/settings.json`:
-
-```json
-{
-  "enabledPlugins": {
-    "coding-standards@imbenrabi": true,
-    "agent-guidelines@imbenrabi": true,
-    "meta-tools@imbenrabi": true
-  }
-}
-```
-
-Install only the plugins you need — they are independent.
-
-#### Updating
-
-For GitHub source, plugins update automatically on session start (when auto-update is enabled for the marketplace). For local directory source, pull the latest changes and run `/reload-plugins`.
-
----
-
-### Claude Desktop
-
-Use this section if you use the Claude Code desktop app on macOS or Windows. The mechanics are the same as the CLI — the desktop app reads the same `~/.claude/settings.json` and exposes the same `/plugin` slash command in chat — but the entry points differ.
-
-#### Option A — GitHub source via the `/plugin` UI
-
-1. Open the Claude Code desktop app.
-2. In a chat, run `/plugin marketplace add imbenrabi/claude-marketplace`.
-3. Run `/plugin` to open the plugin manager. Tab to **Discover** to browse plugins from this marketplace, or install directly:
-   ```
-   /plugin install coding-standards@imbenrabi
-   /plugin install agent-guidelines@imbenrabi
-   /plugin install meta-tools@imbenrabi
-   ```
-4. Run `/reload-plugins` to activate.
-
-#### Option B — GitHub source via `settings.json`
-
-If you'd rather configure marketplaces declaratively, edit `~/.claude/settings.json` (the desktop app reads the same file as the CLI on macOS):
+If you'd rather declare the marketplace in `~/.claude/settings.json` so it persists without an `add` step:
 
 ```json
 {
@@ -158,16 +75,20 @@ If you'd rather configure marketplaces declaratively, edit `~/.claude/settings.j
 }
 ```
 
-Then in the desktop chat:
+You still need to run the install commands above — `extraKnownMarketplaces` only registers the catalog; it does not install plugins from it.
 
-```
-/plugin install coding-standards@imbenrabi
-/plugin install agent-guidelines@imbenrabi
-/plugin install meta-tools@imbenrabi
-/reload-plugins
+#### Option B — Local directory (for development on this marketplace)
+
+From any terminal:
+
+```bash
+claude plugin marketplace add /absolute/path/to/claude-marketplace
+claude plugin install coding-standards@imbenrabi --scope user
+claude plugin install agent-guidelines@imbenrabi --scope user
+claude plugin install meta-tools@imbenrabi --scope user
 ```
 
-#### Option C — Local directory (for development)
+Or via `settings.json`:
 
 ```json
 {
@@ -182,20 +103,75 @@ Then in the desktop chat:
 }
 ```
 
-Then install via `/plugin install ...` in chat as above.
+…then run the `claude plugin install …` commands above.
 
-#### Managing plugins
+For pure local iteration without registering the marketplace at all, `claude --plugin-dir ./plugins/<plugin-name>` loads a single plugin directly from disk for one session (not persisted).
 
-Inside the desktop app, `/plugin` opens an interactive manager with four tabs (cycle with `Tab`):
+#### Enabling and disabling installed plugins
 
-- **Discover** — browse available plugins from your marketplaces.
+Plugins are enabled by default after install. To toggle state:
+
+```bash
+claude plugin disable agent-guidelines@imbenrabi
+claude plugin enable agent-guidelines@imbenrabi
+```
+
+`claude plugin install / uninstall / enable / disable` writes to `~/.claude/settings.json` under `enabledPlugins`. Editing that key by hand only flips the state of plugins that are already installed — it does **not** install missing ones.
+
+#### Updating
+
+For GitHub source, plugins auto-update on session start (when auto-update is enabled for the marketplace). For local directory source, pull the latest changes and run `claude plugin marketplace update imbenrabi` from a terminal, or `/reload-plugins` inside a session.
+
+---
+
+### Claude Desktop
+
+Two different products are commonly called "Claude Desktop", and plugin support differs:
+
+| Product | Where you get it | `/plugin` slash command in chat? | Recommended install path |
+|---------|------------------|----------------------------------|--------------------------|
+| **Claude Code desktop app** | distributed alongside Claude Code | ✓ | Use the in-chat `/plugin` UI, or `claude plugin install …` from a terminal — both work. |
+| **Claude (consumer chat app)** | claude.ai/download | ✗ | Use `claude plugin install …` from a terminal. The chat app does not expose `/plugin`. |
+
+In both cases, plugins live in `~/.claude/plugins/` once installed at user scope.
+
+#### Claude Code desktop app
+
+Inside a chat:
+
+```
+/plugin marketplace add imbenrabi/claude-marketplace
+/plugin install coding-standards@imbenrabi
+/plugin install agent-guidelines@imbenrabi
+/plugin install meta-tools@imbenrabi
+/reload-plugins
+```
+
+`/plugin` (no args) opens the interactive manager with four tabs (cycle with `Tab`):
+
+- **Discover** — browse plugins from your marketplaces.
 - **Installed** — view, enable, disable, or uninstall plugins.
 - **Marketplaces** — add, remove, or update marketplaces.
 - **Errors** — view plugin loading errors.
 
+You can also configure marketplaces declaratively in `~/.claude/settings.json` (see Option A of the CLI section above), but you still need to run the install commands afterward.
+
+#### Claude consumer desktop chat app
+
+The `/plugin` slash command is **not** available in this surface. Install from a terminal instead:
+
+```bash
+claude plugin marketplace add imbenrabi/claude-marketplace
+claude plugin install coding-standards@imbenrabi --scope user
+claude plugin install agent-guidelines@imbenrabi --scope user
+claude plugin install meta-tools@imbenrabi --scope user
+```
+
+Then start (or restart) a chat. Whether installed plugins/skills are loaded by the consumer chat app depends on how the embedded Claude Code agent is wired in your version — verify by checking whether `karpathy-guidelines` auto-triggers when you ask Claude to "refactor this function" in a fresh chat. If they don't load, plugins management is currently a CLI / Claude Code desktop app feature only; use those surfaces.
+
 #### Updating
 
-Same as the CLI: GitHub-source marketplaces auto-update on session start; for local directory sources, pull the repo and run `/reload-plugins`.
+GitHub-source marketplaces auto-update on session start (when auto-update is enabled). For local directory sources, run `claude plugin marketplace update imbenrabi` from a terminal, or `/reload-plugins` inside a Claude Code session.
 
 ## Plugins
 
