@@ -20,6 +20,11 @@
       "name": "agent-guidelines",
       "source": "./plugins/agent-guidelines",
       "description": "Behavioral guidelines (Karpathy-style) that steer how the assistant writes and edits code"
+    },
+    {
+      "name": "hebrew-storyteller",
+      "source": "./plugins/hebrew-storyteller",
+      "description": "Production-grade Hebrew literary prose framework with story bible continuity, character voice enforcement, and AI-pattern humanization — for novel writers, screenwriters, and narrative designers"
     }
   ]
 }

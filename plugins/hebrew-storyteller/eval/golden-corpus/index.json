@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "description": "Golden Hebrew QA corpus for hebrew-judge-agent calibration. Ground-truth scores are author-set; passages are designed to anchor to specific rubric bands across the 5 scoring dimensions.",
+  "tolerances": {
+    "per_dimension_mae_threshold": 1.0,
+    "per_dimension_max_error_threshold": 2.5,
+    "verdict_band_agreement_threshold": 0.85,
+    "overall_pass_requires_all_above": true,
+    "zero_pass_fail_flips_required": true
+  },
+  "passages": [
+    {
+      "id": "P01",
+      "file": "naturalness/P01-fail.md",
+      "target_dimension": "naturalness",
+      "ground_truth_scores": {"naturalness": 2, "ai_detectability": 3, "register_consistency": 6, "dialogue_realism": null, "rhythm_variety": 4},
+      "ground_truth_average": 3.75,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P02",
+      "file": "naturalness/P02-flag.md",
+      "target_dimension": "naturalness",
+      "ground_truth_scores": {"naturalness": 5, "ai_detectability": 5, "register_consistency": 7, "dialogue_realism": null, "rhythm_variety": 6},
+      "ground_truth_average": 5.75,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P03",
+      "file": "naturalness/P03-pass.md",
+      "target_dimension": "naturalness",
+      "ground_truth_scores": {"naturalness": 8, "ai_detectability": 8, "register_consistency": 8, "dialogue_realism": null, "rhythm_variety": 7},
+      "ground_truth_average": 7.75,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P04",
+      "file": "ai-detectability/P04-fail.md",
+      "target_dimension": "ai_detectability",
+      "ground_truth_scores": {"naturalness": 3, "ai_detectability": 2, "register_consistency": 5, "dialogue_realism": null, "rhythm_variety": 5},
+      "ground_truth_average": 3.75,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P05",
+      "file": "ai-detectability/P05-flag.md",
+      "target_dimension": "ai_detectability",
+      "ground_truth_scores": {"naturalness": 6, "ai_detectability": 5, "register_consistency": 7, "dialogue_realism": null, "rhythm_variety": 6},
+      "ground_truth_average": 6.0,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P06",
+      "file": "ai-detectability/P06-pass.md",
+      "target_dimension": "ai_detectability",
+      "ground_truth_scores": {"naturalness": 8, "ai_detectability": 8, "register_consistency": 8, "dialogue_realism": null, "rhythm_variety": 8},
+      "ground_truth_average": 8.0,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "intimate-first-person"
+    },
+    {
+      "id": "P07",
+      "file": "register-consistency/P07-fail.md",
+      "target_dimension": "register_consistency",
+      "ground_truth_scores": {"naturalness": 4, "ai_detectability": 4, "register_consistency": 2, "dialogue_realism": 5, "rhythm_variety": 5},
+      "ground_truth_average": 4.0,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P08",
+      "file": "register-consistency/P08-flag.md",
+      "target_dimension": "register_consistency",
+      "ground_truth_scores": {"naturalness": 6, "ai_detectability": 6, "register_consistency": 5, "dialogue_realism": null, "rhythm_variety": 6},
+      "ground_truth_average": 5.75,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P09",
+      "file": "register-consistency/P09-pass.md",
+      "target_dimension": "register_consistency",
+      "ground_truth_scores": {"naturalness": 7, "ai_detectability": 7, "register_consistency": 8, "dialogue_realism": null, "rhythm_variety": 7},
+      "ground_truth_average": 7.25,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P10",
+      "file": "dialogue-realism/P10-fail.md",
+      "target_dimension": "dialogue_realism",
+      "ground_truth_scores": {"naturalness": 4, "ai_detectability": 4, "register_consistency": 6, "dialogue_realism": 2, "rhythm_variety": 5},
+      "ground_truth_average": 4.2,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P11",
+      "file": "dialogue-realism/P11-flag.md",
+      "target_dimension": "dialogue_realism",
+      "ground_truth_scores": {"naturalness": 6, "ai_detectability": 5, "register_consistency": 7, "dialogue_realism": 5, "rhythm_variety": 6},
+      "ground_truth_average": 5.8,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "tel-aviv-conversational"
+    },
+    {
+      "id": "P12",
+      "file": "dialogue-realism/P12-pass.md",
+      "target_dimension": "dialogue_realism",
+      "ground_truth_scores": {"naturalness": 8, "ai_detectability": 8, "register_consistency": 8, "dialogue_realism": 8, "rhythm_variety": 8},
+      "ground_truth_average": 8.0,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "tel-aviv-conversational"
+    },
+    {
+      "id": "P13",
+      "file": "rhythm-variety/P13-fail.md",
+      "target_dimension": "rhythm_variety",
+      "ground_truth_scores": {"naturalness": 5, "ai_detectability": 4, "register_consistency": 7, "dialogue_realism": null, "rhythm_variety": 2},
+      "ground_truth_average": 4.5,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P14",
+      "file": "rhythm-variety/P14-flag.md",
+      "target_dimension": "rhythm_variety",
+      "ground_truth_scores": {"naturalness": 6, "ai_detectability": 6, "register_consistency": 7, "dialogue_realism": null, "rhythm_variety": 5},
+      "ground_truth_average": 6.0,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P15",
+      "file": "rhythm-variety/P15-pass.md",
+      "target_dimension": "rhythm_variety",
+      "ground_truth_scores": {"naturalness": 8, "ai_detectability": 7, "register_consistency": 8, "dialogue_realism": null, "rhythm_variety": 8},
+      "ground_truth_average": 7.75,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P16",
+      "file": "multi-dimension/P16-stacked-fail.md",
+      "target_dimension": "naturalness",
+      "ground_truth_scores": {"naturalness": 3, "ai_detectability": 3, "register_consistency": 6, "dialogue_realism": null, "rhythm_variety": 3},
+      "ground_truth_average": 3.75,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P17",
+      "file": "multi-dimension/P17-mixed.md",
+      "target_dimension": "register_consistency",
+      "ground_truth_scores": {"naturalness": 7, "ai_detectability": 6, "register_consistency": 8, "dialogue_realism": 6, "rhythm_variety": 7},
+      "ground_truth_average": 6.8,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "contemporary-israeli-realism"
+    },
+    {
+      "id": "P18",
+      "file": "multi-dimension/P18-minimalist-exception.md",
+      "target_dimension": "rhythm_variety",
+      "ground_truth_scores": {"naturalness": 8, "ai_detectability": 8, "register_consistency": 9, "dialogue_realism": null, "rhythm_variety": 6},
+      "ground_truth_average": 7.75,
+      "ground_truth_verdict": "PASS",
+      "tone_preset": "minimalist-literary",
+      "notes": "Tests the rubric's minimalist exception. Rhythm intentionally monotone — judge must NOT penalize because the preset allows it. If judge scores rhythm < 5, judge has not applied the override."
+    }
+  ]
+}

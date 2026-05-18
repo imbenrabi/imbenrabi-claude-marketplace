@@ -1,0 +1,8 @@
+{
+  "name": "hebrew-storyteller",
+  "description": "Production-grade Hebrew literary prose framework with persistent story continuity, character voice enforcement, and AI-pattern humanization — for novel writers, screenwriters, and narrative designers",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}
