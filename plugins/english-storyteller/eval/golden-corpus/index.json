@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "description": "Golden English QA corpus for english-judge-agent calibration. Ground-truth scores are author-set; passages are designed to anchor to specific rubric bands across the 8 scoring dimensions. Pass threshold: all dimensions ≥ 9.",
+  "tolerances": {
+    "per_dimension_mae_threshold": 1.0,
+    "per_dimension_max_error_threshold": 2.5,
+    "verdict_band_agreement_threshold": 0.85,
+    "overall_pass_requires_all_above": true,
+    "zero_pass_fail_flips_required": true
+  },
+  "passages": [
+    {
+      "id": "P01",
+      "file": "rhythm/P01-fail.md",
+      "target_dimension": "rhythm",
+      "ground_truth_scores": {"rhythm": 2, "prose_density": 4, "pov_consistency": 7, "emotional_register": 5, "character_voice": null, "show_dont_tell": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 4.5,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P02",
+      "file": "rhythm/P02-flag.md",
+      "target_dimension": "rhythm",
+      "ground_truth_scores": {"rhythm": 6, "prose_density": 6, "pov_consistency": 8, "emotional_register": 6, "character_voice": null, "show_dont_tell": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 6.5,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P03",
+      "file": "rhythm/P03-pass.md",
+      "target_dimension": "rhythm",
+      "ground_truth_scores": {"rhythm": 9, "prose_density": 9, "pov_consistency": 9, "emotional_register": 9, "character_voice": 9, "show_dont_tell": 9, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P04",
+      "file": "character-voice/P04-fail.md",
+      "target_dimension": "character_voice",
+      "ground_truth_scores": {"character_voice": 2, "rhythm": 5, "prose_density": 4, "show_dont_tell": 3, "pov_consistency": null, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 3.5,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P05",
+      "file": "character-voice/P05-flag.md",
+      "target_dimension": "character_voice",
+      "ground_truth_scores": {"character_voice": 6, "rhythm": 7, "prose_density": 7, "show_dont_tell": 7, "pov_consistency": null, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 6.75,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P06",
+      "file": "character-voice/P06-pass.md",
+      "target_dimension": "character_voice",
+      "ground_truth_scores": {"character_voice": 9, "rhythm": 9, "prose_density": 9, "show_dont_tell": 9, "pov_consistency": null, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P07",
+      "file": "prose-density/P07-fail.md",
+      "target_dimension": "prose_density",
+      "ground_truth_scores": {"prose_density": 2, "rhythm": 3, "show_dont_tell": 3, "emotional_register": 4, "character_voice": null, "pov_consistency": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 3.0,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P08",
+      "file": "prose-density/P08-flag.md",
+      "target_dimension": "prose_density",
+      "ground_truth_scores": {"prose_density": 6, "rhythm": 6, "show_dont_tell": 6, "emotional_register": 7, "character_voice": null, "pov_consistency": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 6.25,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P09",
+      "file": "prose-density/P09-pass.md",
+      "target_dimension": "prose_density",
+      "ground_truth_scores": {"prose_density": 9, "rhythm": 9, "show_dont_tell": 9, "emotional_register": 9, "character_voice": null, "pov_consistency": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P10",
+      "file": "show-dont-tell/P10-fail.md",
+      "target_dimension": "show_dont_tell",
+      "ground_truth_scores": {"show_dont_tell": 2, "prose_density": 3, "emotional_register": 4, "pov_consistency": 5, "character_voice": null, "rhythm": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 3.5,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P11",
+      "file": "show-dont-tell/P11-flag.md",
+      "target_dimension": "show_dont_tell",
+      "ground_truth_scores": {"show_dont_tell": 6, "prose_density": 7, "emotional_register": 6, "pov_consistency": 8, "character_voice": null, "rhythm": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 6.75,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P12",
+      "file": "show-dont-tell/P12-pass.md",
+      "target_dimension": "show_dont_tell",
+      "ground_truth_scores": {"show_dont_tell": 9, "prose_density": 9, "emotional_register": 9, "pov_consistency": 9, "character_voice": null, "rhythm": 9, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P13",
+      "file": "pov-consistency/P13-fail.md",
+      "target_dimension": "pov_consistency",
+      "ground_truth_scores": {"pov_consistency": 2, "character_voice": 4, "prose_density": 4, "show_dont_tell": 3, "rhythm": null, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 3.25,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P14",
+      "file": "pov-consistency/P14-flag.md",
+      "target_dimension": "pov_consistency",
+      "ground_truth_scores": {"pov_consistency": 6, "character_voice": 7, "prose_density": 7, "show_dont_tell": 7, "rhythm": null, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 6.75,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P15",
+      "file": "pov-consistency/P15-pass.md",
+      "target_dimension": "pov_consistency",
+      "ground_truth_scores": {"pov_consistency": 9, "character_voice": 9, "prose_density": 9, "show_dont_tell": 9, "rhythm": 9, "emotional_register": null, "continuity": null, "reference_fidelity": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism"
+    },
+    {
+      "id": "P16",
+      "file": "reference-fidelity/P16-fail.md",
+      "target_dimension": "reference_fidelity",
+      "ground_truth_scores": {"reference_fidelity": 2, "rhythm": 3, "prose_density": 3, "show_dont_tell": 2, "character_voice": null, "pov_consistency": null, "continuity": null, "emotional_register": null},
+      "ground_truth_average": 2.5,
+      "ground_truth_verdict": "FAIL",
+      "tone_preset": "military-realism",
+      "references_json_summary": "anchor: O'Brien Things They Carried; techniques: accumulation_as_weight, declarative_suppression"
+    },
+    {
+      "id": "P17",
+      "file": "reference-fidelity/P17-flag.md",
+      "target_dimension": "reference_fidelity",
+      "ground_truth_scores": {"reference_fidelity": 6, "rhythm": 5, "prose_density": 5, "show_dont_tell": 5, "character_voice": null, "pov_consistency": null, "continuity": null, "emotional_register": null},
+      "ground_truth_average": 5.25,
+      "ground_truth_verdict": "FLAG",
+      "tone_preset": "military-realism",
+      "references_json_summary": "anchor: O'Brien Things They Carried; techniques: accumulation_as_weight, declarative_suppression"
+    },
+    {
+      "id": "P18",
+      "file": "reference-fidelity/P18-pass.md",
+      "target_dimension": "reference_fidelity",
+      "ground_truth_scores": {"reference_fidelity": 9, "rhythm": 9, "prose_density": 9, "show_dont_tell": 9, "character_voice": null, "pov_consistency": null, "continuity": null, "emotional_register": null},
+      "ground_truth_average": 9.0,
+      "ground_truth_verdict": "ALL_PASS",
+      "tone_preset": "military-realism",
+      "references_json_summary": "anchor: O'Brien Things They Carried; techniques: accumulation_as_weight, declarative_suppression"
+    }
+  ]
+}

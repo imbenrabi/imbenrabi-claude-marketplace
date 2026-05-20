@@ -1,0 +1,8 @@
+{
+  "name": "english-storyteller",
+  "description": "Production-grade English literary prose framework with persistent story continuity, reference-anchored style enforcement, character voice consistency, and 8-dimension AI-pattern humanization — for novelists, screenwriters, and long-form narrative writers",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}
