@@ -1,0 +1,8 @@
+{
+  "name": "english-storyteller",
+  "description": "Production-grade English literary prose pipeline for military realism and dark psychology — ingest source material, find published benchmarks via web search, rewrite to literary standard, score on 8 dimensions, and iterate until all scores reach 9+",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ben Rabinovich"
+  }
+}
